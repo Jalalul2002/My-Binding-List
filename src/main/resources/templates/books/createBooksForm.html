@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Books</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Add Books</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <a class="btn btn-info" href="#" th:href="@{/books}">Back to All Books</a>
+            <form action="#" class="form-horizontal" method="post" th:action="@{/books}" th:object="${form}">
+                <fieldset>
+					<span class="pull-right">
+						    <input class="btn btn-success" id="submitButton" th:value="Save" type="submit">
+						    <input class="btn btn-danger" id="resetButton" th:value="Reset" type="reset"/>
+					</span>
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Author</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="book, itemStat : *{books}">
+                            <td><input required th:field="*{books[__${itemStat.index}__].title}" th:placeholder="Title + ' ' + ${itemStat.count}"/></td>
+                            <td><input required th:field="*{books[__${itemStat.index}__].author}" th:placeholder="Author + ' ' + ${itemStat.count}"/></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

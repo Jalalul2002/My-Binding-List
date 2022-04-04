@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <title>Creat Employee Brodi</title>
+</head>
+<body>
+<h1>Form</h1>
+<form action="#" enctype="multipart/form-data" method="post" th:action="@{/employees}" th:object="${employee}">
+    <p>name: <input th:field="*{name}" type="text"/></p>
+    <p>document:<input multiple="multiple" th:field="*{document}" type="file"/>
+        <input type="submit" value="upload"/>
+        <input type="reset" value="Reset"/>
+    </p>
+</form>
+</body>
+</html>
